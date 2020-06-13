@@ -1,0 +1,116 @@
+// Colors
+$colorPrimary: #1890ff;
+$colorSecondary: #ff0000;
+$colorBorder: #e8e8e8;
+$colorText: #595959;
+$colorWhite: #ffffff;
+
+.container {    
+    max-width: 700px;
+    margin: 0 auto;
+
+    .headerAddTask {
+        margin-top: 10em;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-bottom: 2em;
+        input {
+           width: 100%;
+           border-bottom-left-radius: 5px;
+           border-top-left-radius: 5px;
+           border: solid 1px $colorBorder;
+           padding: 15px;
+           font-size: 18px;
+           color: $colorText;
+           transition: all ;
+           transition: border 0.3s ease;
+           &:active, &:focus {
+                border-color: none;
+                outline: 0;
+                box-shadow:none;
+                border: solid 1px $colorPrimary;
+                border-right-color: none;
+           }
+        }
+
+        button {
+            padding: 0 2em;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            border: none;
+            background-color: $colorPrimary;
+            color: $colorWhite;
+            display: inline-block;
+            transition: opacity 0.5s ease;
+            &:disabled {
+                opacity: .65;
+                pointer-events: none;
+            }
+            &:hover {
+                cursor: pointer;
+            } 
+        }
+    }
+
+    .blockTasks {
+        background-color: $colorWhite;
+        border-radius: 5px;
+        border: solid 1px $colorBorder;
+
+        header {
+            @extend .classBorderBottom;
+            padding: 10px 30px;
+            font-size: 1em;
+        }
+
+        .noneTasks {
+            padding: 10px;
+            text-align: center;
+            h4 {
+                color: $colorText;
+                font-weight: 400;
+            }
+        } 
+
+        .listTasks {
+            padding: 30px;
+
+            .taskOnly {
+                @extend .classBorderBottom;
+                @extend .classFlexCenterRowSpace;
+
+                .taskCheckbox {
+                    @extend .classFlexCenterRowSpace;
+                    p {
+                        margin-left: 10px;
+                    }
+                }
+
+                button {
+                    background-color: #f5f5f5;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    border: solid 1px $colorBorder;
+                    color: $colorSecondary;
+                }
+            }
+        }
+    }
+}
+
+.completedTask {
+    text-decoration: line-through;
+    color: $colorText;
+}
+
+.classBorderBottom {
+    border-bottom: solid 1px $colorBorder;
+}
+
+.classFlexCenterRowSpace {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
